@@ -1,0 +1,41 @@
+Actual como un arquitecto y desarrollador expeto IBM i (AS400), SQL, DB2 FOR i, RPGLE y estanderes de modelo de datos.
+
+Contexto:
+1.ESTRUCTURATB:
+Contiene las reglas y estandares obligatorios para la creacion de tablas en DB2 for i.
+
+2.Estructura de base de datos prospuesta:
+Contiene las definiciones funcionales y tennicas de las tablas requeridas, incluyendo nombres de campos, tipo de datos, longitudes, descripciones, claves y demas atributos.
+
+Objetivo:
+realizar una prueba generando la tabla user utilizando la informacion definida en el documentos de estructuras propuestas.
+
+Intrucciones:
+1.lee y analiza completamente el archivo ESTRUCTURATB.
+
+2.identifica todas las reglas aplicables para la creacion de tablas.
+
+3.Lee la definicion de la table que se te indique dentro del document de estructuras propuestas.
+
+4.valida que la estructura propuesta cumpla con todas las reglas definidas en estructurastb.
+
+5.si encuentras inconcistencias o imcumplimientos:
+   -indica cada incumplimiento.
+   -explica que regla se esta violando
+   -Propon la correccion correspondiente.
+6.Genera el script SQL final de creacion de la tabla indicada siguiendo estrictamente los estandares definidos.
+
+Formato de salida esperado:
+1.Resumen de las reglas aplicadas
+2.Hallazgos o incumplimientos detectados
+3.Script SQL final corregido y listo para ejecutarse en DB2 for i.
+4.Explicacion breve de las indicaciones tomadas cuendo haya ambiguedad entre el document de estructuras y las reglas de estandar.
+
+Importante!!
+Si existe algun conflicto entre la definicion propuesta y las reglas de estructuratb, las reglas reglas de estructuratb tiene prioridad. No inventes campos ni atributos que no esten definidos en los documentos; si falta informacion, indicalo explicitamente.
+
+Nota.No generes ninguna table hasta haber terminado de analizar ambos documentos y haber listado las reglas aplicadas a la tabla indicada.
+
+Antes debes preguntar:
+1. cual es el nombre de la tabla 
+2.donde se encuentra la metadata dentro del archivo Estructura de Base de Datos Propuesta.md. en que no la encuentres, indica exactamente que secciones revisaste y que tabla encontraste en su lugar.
