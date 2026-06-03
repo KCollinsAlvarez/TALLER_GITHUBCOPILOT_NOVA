@@ -243,7 +243,7 @@ VARCHAR(n)
 SMALLINT
 INTEGER
 BIGINT
-DECIMAL(p,s)
+DECIMAL(p, s)
 ```
 
 ## Fechas
@@ -275,6 +275,11 @@ CONSTRAINT DEALS_PK PRIMARY KEY (ID_DEAL)
 ---
 
 # 11. Reglas de FK
+
+Regla:
+Si la tabla padre cuanta con una PK compuesta
+debes crear las FK hija con la misma composicion
+aun cuando la metadata de la tabla hija no se indique.
 
 Formato:
 
@@ -379,6 +384,7 @@ Regla:
   usar los campos de auditoría estándar en español para mantener coherencia.
   por ejemplo: CREATED_AT,UPDATED_AT,USUARIO_CREACION, USUARIO_ACTUALIZACION.
   cambialos por los que estan abajo.
+  y tamano de 18 para los user
 
 ```sql
 USUARIO_INGRESO FOR COLUMN USRING CHAR(18)
