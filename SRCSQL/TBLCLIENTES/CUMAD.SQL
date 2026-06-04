@@ -36,7 +36,7 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE CUMAD (
-    ID_CLIENTE_OPERACION FOR COLUMN IDCLIOPE VARCHAR(30)
+    NUM_CLIENTE FOR COLUMN NUMCLI VARCHAR(30)
                         NOT NULL,
     TIPO_REGISTRO FOR COLUMN TIPREG VARCHAR(20)
                         NOT NULL,
@@ -79,9 +79,9 @@ CREATE OR REPLACE TABLE CUMAD (
     FECHA_ACTUALIZA FOR COLUMN FECACT TIMESTAMP
                         NOT NULL WITH DEFAULT,
 
-    CONSTRAINT CUMAD_PK PRIMARY KEY (IDCLIOPE, TIPREG, NUMSEC),
+    CONSTRAINT CUMAD_PK PRIMARY KEY (NUMCLI, TIPREG, NUMSEC),
 
-    CONSTRAINT CUMAD_CUMST_FK FOREIGN KEY (IDCLIOPE)
+    CONSTRAINT CUMAD_CUMST_FK FOREIGN KEY (NUMCLI)
         REFERENCES CUMST (NUMCLI),
 
     CONSTRAINT CUMAD_ESTREG_CST CHECK (ESTREG IN ('A','I'))
@@ -97,7 +97,7 @@ COMMENT ON TABLE CUMAD IS
 --======================================================================
 -- Comentarios
 --======================================================================
-COMMENT ON COLUMN CUMAD.IDCLIOPE IS
+COMMENT ON COLUMN CUMAD.NUMCLI IS
 'Clave del cliente u operación asociada al registro.';
 COMMENT ON COLUMN CUMAD.TIPREG IS
 'Tipo de registro que clasifica la dirección o beneficiario.';
@@ -145,7 +145,7 @@ COMMENT ON COLUMN CUMAD.FECACT IS
 --======================================================================
 LABEL ON TABLE CUMAD IS 'DIRECCIONES_CLIENTE';
 
-LABEL ON COLUMN CUMAD.IDCLIOPE  IS 'Cliente/Operación';
+LABEL ON COLUMN CUMAD.NUMCLI  IS 'Cliente/Operación';
 LABEL ON COLUMN CUMAD.TIPREG   IS 'Tipo Registro';
 LABEL ON COLUMN CUMAD.NUMSEC   IS 'Secuencia';
 LABEL ON COLUMN CUMAD.TIPPER   IS 'Tipo Persona';
@@ -170,7 +170,7 @@ LABEL ON COLUMN CUMAD.FECACT   IS 'Fecha actualización';
 --======================================================================
 -- Labels TEXT IS
 --======================================================================
-LABEL ON COLUMN CUMAD.IDCLIOPE  TEXT  IS 'Cliente/Operación';
+LABEL ON COLUMN CUMAD.NUMCLI  TEXT  IS 'Cliente/Operación';
 LABEL ON COLUMN CUMAD.TIPREG   TEXT  IS 'Tipo Registro';
 LABEL ON COLUMN CUMAD.NUMSEC   TEXT  IS 'Secuencia';
 LABEL ON COLUMN CUMAD.TIPPER   TEXT  IS 'Tipo Persona';

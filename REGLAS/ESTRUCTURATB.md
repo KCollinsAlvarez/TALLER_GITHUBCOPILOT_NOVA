@@ -233,7 +233,7 @@ CODIGO_CLIENTE FOR COLUMN CODCLI CHAR(10)
 ## Caracteres
 
 ```sql
-CHAR(n)
+CHAR(n)U
 VARCHAR(n)
 ```
 
