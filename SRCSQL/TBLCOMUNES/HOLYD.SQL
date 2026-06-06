@@ -35,7 +35,7 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE HOLYD (
-    CODIGO_MONEDA FOR COLUMN CODMON VARCHAR(20)
+    CODIGO_MONEDA FOR COLUMN CODMON CHAR(3)
                         NOT NULL,
 
     FECHA_FERIADO FOR COLUMN FECFER DATE

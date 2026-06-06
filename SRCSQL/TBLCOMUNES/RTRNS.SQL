@@ -35,10 +35,9 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE RTRNS (
-    CODIGO_BANCO FOR COLUMN CODBCO VARCHAR(20)
-                        NOT NULL,
+    CODIGO_BANCO FOR COLUMN CODBCO NUMERIC(3, 0)                        NOT NULL,
 
-    CODIGO_MONEDA FOR COLUMN CODMON VARCHAR(20)
+    CODIGO_MONEDA FOR COLUMN CODMON CHAR(3)
                         NOT NULL,
 
     FECHA_CAMBIO_TASA FOR COLUMN FECCAMTAS DATE
