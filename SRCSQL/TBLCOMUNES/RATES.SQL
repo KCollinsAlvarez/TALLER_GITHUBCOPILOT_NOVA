@@ -34,10 +34,10 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE RATES (
-    CODIGO_BANCO FOR COLUMN CODBCO VARCHAR(20)
+    CODIGO_BANCO FOR COLUMN CODBCO NUMERIC(3, 0)
                         NOT NULL,
 
-    CODIGO_MONEDA FOR COLUMN CODMON VARCHAR(20)
+    CODIGO_MONEDA FOR COLUMN CODMON CHAR(3)
                         NOT NULL,
 
     DESCRIP_TASA FOR COLUMN DESTAS VARCHAR(120)

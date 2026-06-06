@@ -27,7 +27,7 @@
 --
 -- Hecho por: K. Collins Alvarez Herrera
 --
--- Fecha: 2026-05-21
+-- Fecha: 2026-05-31
 --
 -- Proyecto: Taller GitHub Copilot NOVA
 --======================================================================

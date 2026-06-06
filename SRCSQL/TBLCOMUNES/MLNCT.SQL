@@ -34,7 +34,7 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE MLNCT (
-    CODIGO_BANCO FOR COLUMN CODBCO VARCHAR(20)
+    CODIGO_BANCO FOR COLUMN CODBCO NUMERIC(3, 0)
                         NOT NULL,
     CODIGO_NOTIF FOR COLUMN CODNTF VARCHAR(20)
                         NOT NULL,
@@ -42,7 +42,7 @@ CREATE OR REPLACE TABLE MLNCT (
                         NOT NULL,
     IDIOMA_ASOCIADO FOR COLUMN IDMASO VARCHAR(20)
                         NOT NULL,
-    SECUENCIA FOR COLUMN NUMSEC INTEGER
+    NUM_SECUENCIA FOR COLUMN NUMSEC INTEGER
                         NOT NULL,
     DESCRIPCION FOR COLUMN DESFUN VARCHAR(120)
                         NOT NULL DEFAULT '',

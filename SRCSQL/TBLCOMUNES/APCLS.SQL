@@ -36,7 +36,7 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE APCLS (
-    CODIGO_BANCO FOR COLUMN CODBCO VARCHAR(20)
+    CODIGO_BANCO FOR COLUMN CODBCO NUMERIC(3, 0)
                         NOT NULL,
 
     CODIGO_PRODUCTO FOR COLUMN CODPRD VARCHAR(20)
