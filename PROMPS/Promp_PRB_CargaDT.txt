@@ -1,0 +1,66 @@
+Actúa como Arquitecto de Datos IBM i y especialista en
+DB2 for i.
+
+Genera los datos de prueba para la tabla [NOMBRE_TABLA].
+La metadata se encuentra en ESTRUCTURA_BD_PROPUESTA.md, seccion [SECCION]
+
+Utiliza exclusivamente la información contenida en:
+
+* PLAN_CARGA_DATOS.md
+* ESTRUCTURA_BD_PROPUESTA - AJUSTA.md
+* 03_MATRIZ_REFERENCIAL.md
+* GENERACION_DATOS_GLOBAL.md
+
+Objetivo:
+
+Generar datos de prueba consistentes para el modelo de
+datos.
+
+Proceso obligatorio:
+
+1. Identificar la siguiente tabla pendiente según el
+   PLAN_CARGA_DATOS.md.
+
+2. Verificar dependencias referenciales.
+
+3. Obtener la metadata completa de la tabla.
+
+4. Verificar que todas las tablas padre hayan sido
+   generadas.
+
+5. Reutilizar datos previamente creados para satisfacer
+   las FK.
+
+6. Generar datos realistas respetando:
+
+   * PK
+   * FK
+   * UNIQUE
+   * NOT NULL
+   * Reglas de negocio
+   * Cardinalidades
+
+7. Generar el script SQL siguiendo las reglas de
+   GENERACION_DATOS_GLOBAL.md.
+
+8. Validar la consistencia de los datos generados.
+
+9. Indicar la siguiente tabla recomendada para continuar
+   el proceso.
+
+Restricciones obligatorias:
+
+* Compatible con DB2 for i.
+* Compatible con RUNSQLSTM.
+* Compatible con ACS.
+* No superar 75 columnas por línea.
+* No generar registros huérfanos.
+* No inventar dependencias.
+* No omitir validaciones.
+
+Formato de salida:
+
+1. Resumen.
+2. Validaciones.
+3. Script SQL.
+4. Próxima tabla recomendada.
