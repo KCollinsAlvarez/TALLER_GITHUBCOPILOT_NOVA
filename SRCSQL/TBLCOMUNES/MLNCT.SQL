@@ -34,7 +34,7 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE MLNCT (
-    CODIGO_BANCO FOR COLUMN CODBCO NUMERIC(3, 0)
+    CODIGO_BANCO FOR COLUMN CODBCO SMALLINT
                         NOT NULL,
     CODIGO_NOTIF FOR COLUMN CODNTF VARCHAR(20)
                         NOT NULL,

@@ -34,7 +34,7 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE RATES (
-    CODIGO_BANCO FOR COLUMN CODBCO NUMERIC(3, 0)
+    CODIGO_BANCO FOR COLUMN CODBCO SMALLINT
                         NOT NULL,
 
     CODIGO_MONEDA FOR COLUMN CODMON CHAR(3)

@@ -35,7 +35,8 @@
 --======================================================================
 
 CREATE OR REPLACE TABLE RTRNS (
-    CODIGO_BANCO FOR COLUMN CODBCO NUMERIC(3, 0)                        NOT NULL,
+    CODIGO_BANCO FOR COLUMN CODBCO SMALLINT  
+                    NOT NULL,
 
     CODIGO_MONEDA FOR COLUMN CODMON CHAR(3)
                         NOT NULL,
