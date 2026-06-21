@@ -29,7 +29,7 @@
 -- FKs múltiples a GLMST (cuenta contable), ACMST (cuenta),
 --   CUMST (cliente).
 -- ESTADO_REGISTRO solo acepta A o I.
--- Auditoría estándar en español aplicada.
+-- DEBITO_CREDITO solo acepta D o C.
 --
 -- Hecho por: K. Collins Alvarez Herrera
 --
@@ -43,26 +43,26 @@ CREATE OR REPLACE TABLE TRANS (
     ID_TRANSACCION FOR COLUMN IDETRN BIGINT
             NOT NULL GENERATED ALWAYS AS IDENTITY,
 
-    NUM_REG_RELATIVO FOR COLUMN NUMREGL VARCHAR(30)
-                                 NOT NULL,
+    NUM_REG_RELATIVO FOR COLUMN NUMREGRLT VARCHAR(30)
+                                 NOT NULL DEFAULT '',
 
     CODIGO_BANCO FOR COLUMN CODBCO SMALLINT
-                    NOT NULL,
+                    NOT NULL DEFAULT 1,
 
     CODIGO_SUCURSAL FOR COLUMN CODSUC VARCHAR(20)
-                       NOT NULL,
+                       NOT NULL DEFAULT '',
 
     CODIGO_MONEDA FOR COLUMN CODMON CHAR(3)
-                     NOT NULL,
+                     NOT NULL DEFAULT '',
 
     CUENTA_CONTABLE FOR COLUMN CTACNT VARCHAR(24)
-                       NOT NULL,
+                       NOT NULL DEFAULT '',
 
     NUMERO_CUENTA FOR COLUMN NUMCTA VARCHAR(24)
-                      NOT NULL,
+                      NOT NULL DEFAULT '',
 
     NUM_CLIENTE FOR COLUMN NUMCLI VARCHAR(30)
-                  NOT NULL,
+                  NOT NULL DEFAULT '',
 
     FECHA_OPERACION FOR COLUMN FECOPE DATE
                        NOT NULL DEFAULT '0001-01-01',
@@ -71,13 +71,13 @@ CREATE OR REPLACE TABLE TRANS (
                    NOT NULL DEFAULT '0001-01-01',
 
     HORA_OPERACION FOR COLUMN HOROPE TIME
-                      NOT NULL,
+                      NOT NULL WITH DEFAULT,
 
     TIPO_MOVIMIENTO FOR COLUMN TIPMOV VARCHAR(20)
                        NOT NULL DEFAULT '',
 
     DEBITO_CREDITO FOR COLUMN DEBCRT CHAR(1)
-                      NOT NULL DEFAULT 'D',
+                      NOT NULL DEFAULT ' ',
 
     MONTO_TRNSACCION FOR COLUMN MNTTRN DECIMAL(18, 2)
               NOT NULL DEFAULT 0,
@@ -132,7 +132,8 @@ CREATE OR REPLACE TABLE TRANS (
     CONSTRAINT FK_TRANS_CUMST FOREIGN KEY (NUMCLI)
         REFERENCES CUMST (NUMCLI),
 
-    CONSTRAINT TRANS_ESTREG_CST CHECK (ESTREG IN ('A', 'I'))
+    CONSTRAINT TRANS_ESTREG_CST CHECK (ESTREG IN ('A', 'I')),
+    CONSTRAINT TRANS_DEBCRT_CST CHECK (DEBCRT IN ('D', 'C'))
 
 ) RCDFMT RTRANS;
 
@@ -150,9 +151,9 @@ COMMENT ON TABLE TRANS IS
 -- Comentarios de Columnas
 --======================================================================
 COMMENT ON COLUMN TRANS.IDETRN IS
-'Identificador único de transacción. PK de la tabla.';
+'Identificador único de transacción.';
 
-COMMENT ON COLUMN TRANS.NUMREGL IS
+COMMENT ON COLUMN TRANS.NUMREGRLT IS
 'Número de registro relativo de la transacción.';
 
 COMMENT ON COLUMN TRANS.CODBCO IS
@@ -239,7 +240,7 @@ LABEL ON TABLE TRANS IS 'TRANSACCIONES_HIST';
 -- Labels de Columnas
 --======================================================================
 LABEL ON COLUMN TRANS.IDETRN  IS 'ID Transacción';
-LABEL ON COLUMN TRANS.NUMREGL  IS 'Número Registro Rel.';
+LABEL ON COLUMN TRANS.NUMREGRLT  IS 'Número Registro Rel.';
 LABEL ON COLUMN TRANS.CODBCO   IS 'Código Banco';
 LABEL ON COLUMN TRANS.CODSUC   IS 'Código Sucursal';
 LABEL ON COLUMN TRANS.CODMON   IS 'Código Moneda';
@@ -270,7 +271,7 @@ LABEL ON COLUMN TRANS.FECACT   IS 'Fecha Actualiz.';
 -- Labels TEXT IS de Columnas
 --======================================================================
 LABEL ON COLUMN TRANS.IDETRN  TEXT IS 'ID Transacción';
-LABEL ON COLUMN TRANS.NUMREGL  TEXT IS 'Número Registro Rel.';
+LABEL ON COLUMN TRANS.NUMREGRLT  TEXT IS 'Número Registro Rel.';
 LABEL ON COLUMN TRANS.CODBCO   TEXT IS 'Código Banco';
 LABEL ON COLUMN TRANS.CODSUC   TEXT IS 'Código Sucursal';
 LABEL ON COLUMN TRANS.CODMON   TEXT IS 'Código Moneda';
@@ -303,4 +304,4 @@ LABEL ON COLUMN TRANS.FECACT   TEXT IS 'Fecha Actualiz.';
 -- Índice sobre numero_registro_relativo.
 -- Justificación: campo único de negocio, búsquedas frecuentes
 -- para recuperar transacciones por identificador relativo.
-CREATE INDEX IX_TRANS_NUM_REG_REL ON TRANS (NUMREGL);
+CREATE INDEX IX_TRANS_NUMREGRLT ON TRANS (NUMREGRLT);

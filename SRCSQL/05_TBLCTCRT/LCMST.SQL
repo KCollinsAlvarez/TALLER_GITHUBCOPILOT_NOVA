@@ -27,7 +27,6 @@
 -- PK técnica: id BIGINT GENERATED ALWAYS AS IDENTITY.
 -- UNIQUE sobre numero_carta_credito (clave de negocio).
 -- ESTADO_REGISTRO solo acepta A o I.
--- Auditoría estándar en español aplicada.
 --
 -- Hecho por: K. Collins Alvarez Herrera
 --
